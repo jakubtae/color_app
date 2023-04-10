@@ -3,7 +3,10 @@
     --second-color: #000;
     --navbar-uls-color: #333;
     --third-color: #17ccba;
+    --color-box-size: clamp(20px, 3vw, 30px)
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
 
 *{
     box-sizing: border-box;
@@ -13,6 +16,7 @@ body,html{
     padding: 0;
     margin: 0;
     height: 100vh;
+    font-family: 'Quicksand', sans-serif;
 }
 
 /* nav{
@@ -62,7 +66,12 @@ ul {
   align-items: center;
   justify-content: center;
 }
-
+.color_name{
+  font-size: var(--color-box-size);
+  font-weight: 700;
+}
 .color_code{
+  font-size: var(--color-box-size);
   text-transform: uppercase;
+  font-weight: 700;
 }

@@ -22,7 +22,8 @@ app.use("/", landingRouter);
 const randomcolorRouter = require("./routes/randomcolor");
 app.use("/randomcolor", randomcolorRouter);
 
-
+const paletteRouter = require("./routes/palette");
+app.use("/palette", paletteRouter);
 
 
 
