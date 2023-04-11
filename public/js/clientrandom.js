@@ -22,11 +22,11 @@ function fetchAllColors(number){
     if (xj.readyState == 4) {
       var colors = JSON.parse(xj.responseText);
       for (var i = 0; i < 5; i++) {
-        await getFontColor(colors[i])
+        await getFontColor(colors[i].hex)
         colorBoxes[i].style.color = fontColor;
-        colorBoxes[i].style.background = colors[i];
-        colornames[i].innerHTML = " ";
-        colorcodes[i].innerHTML = colors[i];  
+        colorBoxes[i].style.background = colors[i].hex;
+        colornames[i].innerHTML = colors[i].name;
+        colorcodes[i].innerHTML = colors[i].hex;  
       }
     }
   };

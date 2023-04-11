@@ -75,3 +75,25 @@ ul {
   text-transform: uppercase;
   font-weight: 700;
 }
+.palette_main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.palette{
+  display: flex;
+  align-items: center;
+  border: 3px solid black;
+  margin: 10px;
+}
+
+.main_color{
+  width: 200px;
+  height: 200px;
+}
+
+.palette_color{
+  width: 100px;
+  height: 100px;
+}

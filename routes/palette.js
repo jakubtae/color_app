@@ -1,32 +1,47 @@
 const express = require('express');
 const router = express.Router();
 
+// const namedColor = require('../models/namedColor.js');
+const randomColor = require("../models/randomColor.js");
+
+var tinycolor = require("tinycolor2");
+
+
 router.get('/', (req, res) => {
     res.render('palette/main.ejs');
 })
 
-router.post('/', (req, res) => {
-    var howMuch = 1 * 3;
-    var hexaFragments = [];
-    while(hexaFragments.length < howMuch){
-        var decimalFragment = Math.floor(Math.random() * 255) + 0;
-        if(hexaFragments.indexOf(decimalFragment) === -1){
-            var hexaFragment = decimalFragment.toString(16);
-            hexaFragments.push(hexaFragment);
-        }
+
+
+router.post('/',async  (req, res) => {
+    var colorObject;
+    var mainColor;
+    var color;
+    if(!req.body.mainColor){
+        colorObject = randomColor(1);
+        color = colorObject[0].hex
     }
-    var colors = []
-    while(hexaFragments.length > 0)
-    {
-        var color = "#";
-        for(var j = 0; j < 3;j++){
-            var color = color+ hexaFragments[0];
-            hexaFragments.splice(0,1);
-        }
-        //! CHECK IF COLOR IS COLSER TO BLACK OR WHITE AND BASED ON THAT SEND ALSO THE text_color ARRAY THAT IS AN OPPOSITE COLOR
-        colors.push(color)    
+    else{
+        color = req.body.mainColor;
     }
-    res.send(colors);
-})
+    mainColor = tinycolor(color);
+
+    var analogus = mainColor.analogous();
+    const analogusArray = (analogus.map(function(t) { return t.toHexString(); }));
+
+    var monochromatic = mainColor.monochromatic();
+    const monochromaticArray = (monochromatic.map(function(t) { return t.toHexString(); }));
+
+    var splitcomplement = mainColor.splitcomplement();
+    const splitcomplementArray = (splitcomplement.map(function(t) { return t.toHexString(); }))
+    
+    var triad = mainColor.triad();
+    const triadArray = (triad.map(function(t) { return t.toHexString(); }))
+
+    var tetrad = mainColor.tetrad();
+    const tetradArray = (tetrad.map(function(t) { return t.toHexString(); }))
+
+    res.render('palette/main.ejs' , {mainColor : color, analogus: analogusArray, monochromatic: monochromaticArray, splitcomplement: splitcomplementArray, triad: triadArray, tetrad: tetradArray});
+})  
 
 module.exports = router;
