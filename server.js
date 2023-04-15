@@ -25,6 +25,11 @@ app.use("/randomcolor", randomcolorRouter);
 const paletteRouter = require("./routes/palette");
 app.use("/palette", paletteRouter);
 
+const betterPaletteRouter = require("./routes/betterpalette");
+app.use("/better-palette", betterPaletteRouter);
+
+const gradientRouter = require("./routes/gradient");
+app.use("/gradient", gradientRouter);
 
 
 app.listen(3000);

@@ -4,6 +4,7 @@ const namedColor = require("../models/namedColor.js");
 const randomColor = require("../models/randomColor.js");
 const fetch = require("node-fetch"); 
 
+
 router.get("/", (req, res) => {
   res.render("randomcolor/main.ejs");
 });

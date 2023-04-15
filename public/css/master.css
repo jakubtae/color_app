@@ -97,3 +97,15 @@ ul {
   width: 100px;
   height: 100px;
 }
+
+.gradientBox{
+  width: 100%;
+  min-height: 400px;
+}
+
+.gradientCss{
+  width: 50%;
+  padding: 30px;
+  background: #333;
+  color : #DDD;
+}
