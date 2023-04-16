@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Colors Generator</title>
+    <link rel="stylesheet" href="css/master.css" />
+  </head>
+
+  <body>
+    <form action="/pageColors" method="POST">
+        <select name="keys" id="">
+            <% colorMeanings.forEach(color=>{%>
+                <option><%- color.keys %></option>
+            <%})%>
+        </select>
+        <input type="submit" value="GENERATE">
+    </form>
+    <% if(locals.modifiedColor) {%>
+        <div> <input type="color" value="<%= modifiedColor %>" onclick="saveColor();" onchange="changeColor();"></div>
+        <div class="exmple-box" style="background:white; border: 1px solid black; padding: 10px;">
+            <h4 style="color : black">Generate Header</h4>
+            <p style="color: <%= modifiedColor %>;" class="color-main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, est! Sunt, dolore earum iusto ullam unde modi, quibusdam laudantium itaque sit esse tempore distinctio consequuntur incidunt recusandae magnam et eum.</p>
+        </div>
+        <div class="exmple-box" style="background:black;border: 1px solid black; padding: 10px;">
+            <h4 style="color : <%= modifiedColor %>" class="color-main">Generate Header</h4>
+            <p style="color: white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, est! Sunt, dolore earum iusto ullam unde modi, quibusdam laudantium itaque sit esse tempore distinctio consequuntur incidunt recusandae magnam et eum.</p>
+        </div>
+        <div class="exmple-box bg-main" style="background: <%= modifiedColor %> ;border: 1px solid black; padding: 10px;">
+            <h4 style="color : black">Generate Header</h4>
+            <p style="color: white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, est! Sunt, dolore earum iusto ullam unde modi, quibusdam laudantium itaque sit esse tempore distinctio consequuntur incidunt recusandae magnam et eum.</p>
+        </div>
+
+    <%}%>
+    <script defer>
+        var preColor;
+        function saveColor() {
+            preColor = document.querySelector("input[type='color']").value;
+            return preColor;
+        }
+        function changeColor() {
+            var newColor = document.querySelector("input[type='color']").value;
+            const colorsMain = document.querySelectorAll('.color-main');
+            colorsMain.forEach(color=>{color.style.color = newColor})
+            const bgsMain = document.querySelectorAll('.bg-main');
+            bgsMain.forEach(color=>{color.style.background = newColor})
+            }
+    </script>
+    <!-- <script src="js/palette.js" defer></script> -->
+  </body>
+</html>

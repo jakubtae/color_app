@@ -31,5 +31,8 @@ app.use("/better-palette", betterPaletteRouter);
 const gradientRouter = require("./routes/gradient");
 app.use("/gradient", gradientRouter);
 
+const pageColorsRouter = require("./routes/pageColors");
+app.use("/pageColors", pageColorsRouter);
+
 
 app.listen(3000);
