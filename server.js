@@ -34,5 +34,6 @@ app.use("/gradient", gradientRouter);
 const pageColorsRouter = require("./routes/pageColors");
 app.use("/pageColors", pageColorsRouter);
 
+console.log("Starting");
 
 app.listen(3000);
