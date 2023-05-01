@@ -19,20 +19,21 @@ app.use(bodyParser.urlencoded({ limit: "10mB", extended: false })); //! for FORM
 const landingRouter = require("./routes/landing");
 app.use("/", landingRouter);
 
+const blogRouter = require("./routes/blog");
+app.use("/blog", blogRouter);
+
 const randomcolorRouter = require("./routes/randomcolor");
 app.use("/randomcolor", randomcolorRouter);
 
 const paletteRouter = require("./routes/palette");
 app.use("/palette", paletteRouter);
 
-const betterPaletteRouter = require("./routes/betterpalette");
-app.use("/better-palette", betterPaletteRouter);
 
 const gradientRouter = require("./routes/gradient");
 app.use("/gradient", gradientRouter);
 
-const pageColorsRouter = require("./routes/pageColors");
-app.use("/pageColors", pageColorsRouter);
+const liveColorTestRouter = require("./routes/livecolorstest");
+app.use("/livecolorstest", liveColorTestRouter);
 
 console.log("Starting");
 

@@ -1,47 +1,34 @@
 const express = require('express');
 const router = express.Router();
+const HexToHsl = require("../models/HexToHsl.js");
+const fs = require('fs');
+functions = [];
 
-// const namedColor = require('../models/namedColor.js');
-const randomColor = require("../models/randomColor.js");
-
-var tinycolor = require("tinycolor2");
-
+//! IMPORTANT 
+//* DYNAMICLY READS THE MODELS DIRECTORY
+fs.readdirSync('./models/palette').forEach(function(file) {
+    var name = file.replace('.js', '');
+    functions.push(name);
+    exports[name] = require('../models/palette/' + file);
+  });
+//! IMPORTANT 
 
 router.get('/', (req, res) => {
-    res.render('palette/main.ejs');
+    res.render('main/palette.ejs');
 })
 
-
-
-router.post('/',async  (req, res) => {
-    var colorObject;
-    var mainColor;
-    var color;
-    if(!req.body.mainColor){
-        colorObject = randomColor(1);
-        color = colorObject[0].hex
+//! IMPORTANT 
+//* DYNAMICLY EXECUTE EACH EXPORTED FUNCTION FROM EARLIER READ DIRECTORY
+router.post('/', (req, res) => {
+    var functionResults = [];
+    for (var i = 0; i < functions.length; ++i) {
+        //* exports is an object and by using object.values(exports)[i] we can use a function assinged to i value
+        functionResults.push(Object.values(exports)[i](HexToHsl(req.body.hexcolor)))
+        //! pushes the result of function to arr
     }
-    else{
-        color = req.body.mainColor;
-    }
-    mainColor = tinycolor(color);
-
-    var analogus = mainColor.analogous();
-    const analogusArray = (analogus.map(function(t) { return t.toHexString(); }));
-
-    var monochromatic = mainColor.monochromatic();
-    const monochromaticArray = (monochromatic.map(function(t) { return t.toHexString(); }));
-
-    var splitcomplement = mainColor.splitcomplement();
-    const splitcomplementArray = (splitcomplement.map(function(t) { return t.toHexString(); }))
-    
-    var triad = mainColor.triad();
-    const triadArray = (triad.map(function(t) { return t.toHexString(); }))
-
-    var tetrad = mainColor.tetrad();
-    const tetradArray = (tetrad.map(function(t) { return t.toHexString(); }))
-
-    res.render('palette/main.ejs' , {mainColor : color, analogus: analogusArray, monochromatic: monochromaticArray, splitcomplement: splitcomplementArray, triad: triadArray, tetrad: tetradArray});
-})  
+    const maincolor = req.body.hexcolor;
+    res.send({mainColor: maincolor,  function:functionResults});
+})
+//! IMPORTANT 
 
 module.exports = router;

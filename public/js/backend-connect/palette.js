@@ -18,13 +18,13 @@ function fetchBetterPalette(){
   var hexcolor = document.getElementById("hex_input").value;
   console.log(hexcolor);
   var xj = new XMLHttpRequest();
-  xj.open("POST", "http://localhost:3000/better-palette", true);
+  xj.open("POST", "http://localhost:3000/palette", true);
   xj.setRequestHeader("Content-Type", "application/json");
   xj.send(JSON.stringify({ hexcolor:  hexcolor}));
   xj.onreadystatechange = async function () {
     if (xj.readyState == 4) {
       var response = xj.responseText;
-      console.log(response)
+      console.log(JSON.parse(response))
     }
   };
 }

@@ -1,111 +1,119 @@
-:root{
-    --main-color: #fff;
-    --second-color: #000;
-    --navbar-uls-color: #333;
-    --third-color: #17ccba;
-    --color-box-size: clamp(20px, 3vw, 30px)
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+:root {
+  --main-color: #fff;
+  --second-color: #000;
+  --second-half-color: rgba(0, 0, 0, 0.5);
+  --font-family: "Poppins", sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  all: unset;
+  font-family: var(--font-family);
+}
+/* ! NAVBAR INCLUDE STYLE START */
+nav {
+  min-height: 80px;
+  width: calc(100% - 40px);
+  background: var(--main-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap');
-
-*{
-    box-sizing: border-box;
-}
-
-body,html{
-    padding: 0;
-    margin: 0;
-    height: 100vh;
-    font-family: 'Quicksand', sans-serif;
-}
-
-/* nav{
-    width: 100%;
-    padding: 0 30px;
-    display: flex;
-    justify-content: space-between;
-    background: var(--second-color);
+.navigation .logo {
+  all: unset;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 34px;
 }
 ul {
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    border-radius: 1.4rem;
-    background-color: var(--navbar-uls-color);
-  }
-  
-  li {
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: var(--main-color);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover {
-    background-color: var(--third-color);
-} */
-
-.main{
-  width: 100%;
-  height: 80%;
+  all: unset;
   display: flex;
-  flex-direction: row;
-  background-color: red;
+  gap: 30px;
+}
+li {
+  all: unset;
+}
+li a {
+  all: unset;
+  color: var(--second-half-color);
+  font-weight: 500;
+  font-size: 18px;
+  transition: color 130ms ease-in-out;
+}
+.normal-hover:hover,
+.normal-hover:focus {
+  color: var(--second-color);
+  cursor: pointer;
+  transition: color 130ms ease-in-out;
+}
+.user-experience {
+  display: flex;
+  gap: 20px;
+}
+.user-experience .sign {
+  all: unset;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+}
+.user-experience .sign-up {
+  background: var(--second-color);
+  color: var(--main-color);
+  border-radius: 6px;
+}
+.user-experience .sign-up:hover {
+  background: var(--second-half-color);
 }
 
-.color_box{
-  width: 100%;
-  height: 100%;
+/* ! NAVBAR INCLUDE STYLE END */
+/* ! FOOTER INCLUDE STYLE START */
+
+footer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-}
-.color_name{
-  font-size: var(--color-box-size);
-  font-weight: 700;
-}
-.color_code{
-  font-size: var(--color-box-size);
-  text-transform: uppercase;
-  font-weight: 700;
-}
-.palette_main{
-  display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-.palette{
-  display: flex;
-  align-items: center;
-  border: 3px solid black;
-  margin: 10px;
-}
-
-.main_color{
-  width: 200px;
-  height: 200px;
-}
-
-.palette_color{
-  width: 100px;
-  height: 100px;
-}
-
-.gradientBox{
+  gap: 30px;
+  min-height: 90px;
   width: 100%;
-  min-height: 400px;
+  background: var(--main-color);
+  color: var(--second-color);
+  margin-top: 180px;
+}
+footer .logo {
+  all: unset;
+  font-weight: 700;
+  font-size: 34px;
+}
+.bold-small {
+  font-weight: 700;
+  font-size: 20px;
+}
+footer .images {
+  display: flex;
+  gap: 20px;
+}
+footer .images img {
+  aspect-ratio: 2/1;
+  width: 80px;
 }
 
-.gradientCss{
-  width: 50%;
-  padding: 30px;
-  background: #333;
-  color : #DDD;
+/* ! FOOTER INCLUDE STYLE END */
+
+/* ! ALL PAGES CSS START */
+.container{
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  background: var(--main-color);
 }
+/* ! ALL PAGES CSS END */

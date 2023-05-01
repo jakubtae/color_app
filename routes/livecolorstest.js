@@ -8,7 +8,7 @@ const modifyColor = require("../models/modifyColor.js");
 
 router.get('/', async (req, res) => {
     const colorMeanings = await JSON.parse(fs.readFileSync("./models/market_colors.json", "utf8"));
-    res.render('pageColors/main.ejs', {colorMeanings: colorMeanings});
+    res.render('main/livecolorstest.ejs', {colorMeanings: colorMeanings});
 })
 
 router.post('/', async (req, res) => {
@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
         if(!req.body.keys) return res.status(404).send("Error")
         const searchIndex = await colorMeanings.find((type) => type.keys==req.body.keys);
         const modifiedColor = await modifyColor(HexToHsl(searchIndex.color));
-        res.render("pageColors/main.ejs", {colorMeanings: colorMeanings, modifiedColor : modifiedColor});
+        res.render("main/livecolorstest.ejs", {colorMeanings: colorMeanings, modifiedColor : modifiedColor});
     }catch(err){
         res.send(err);
     }

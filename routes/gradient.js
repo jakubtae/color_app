@@ -5,7 +5,7 @@ var Rainbow = require("rainbowvis.js");
 var myRainbow = new Rainbow();
 
 router.get("/", (req, res) => {
-  res.render("gradient/main.ejs");
+  res.render("main/gradient.ejs");
 });
 
 router.post("/", (req, res) => {

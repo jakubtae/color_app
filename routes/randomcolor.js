@@ -6,7 +6,7 @@ const fetch = require("node-fetch");
 
 
 router.get("/", (req, res) => {
-  res.render("randomcolor/main.ejs");
+  res.render("main/randomcolor.ejs");
 });
 
 router.post("/", async (req, res) => {
