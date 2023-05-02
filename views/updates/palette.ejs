@@ -1,0 +1,26 @@
+<%if(locals.functions){%>
+    <% Array.from(locals.functions).forEach(func =>{%>
+        <div class="palette" id="<%=func.name%>">
+            <h3><%=func.name%></h3>
+            <div class="palette-colors">
+                <div class="color-box" onclick="justCopy(this.querySelector('.hexcode').innerText);">
+                    <div class="color" style="background: <%= mainColor%>;"></div>
+                    <button class="hexcode"><%=mainColor%></button>
+                </div>
+                    <%if(typeof(func.values) === "string"){%>
+                        <div class="color-box" onclick="justCopy(this.querySelector('.hexcode').innerText);">
+                            <div class="color" style="background: <%=func.values%>;"></div>
+                            <button class="hexcode"><%=func.values%></button>  
+                        </div>
+                    <%} else{%>
+                        <% for(var i=0; i < func.values.length; i++){%>
+                            <div class="color-box" onclick="justCopy(this.querySelector('.hexcode').innerText);">
+                                <div class="color" style="background:<%=func.values[i]%>;"></div>
+                                <button class="hexcode"><%=func.values[i]%></button>
+                            </div>
+                        <%}%>
+                    <%}%>
+            </div>
+        </div>
+    <%})%>
+<%}%>
