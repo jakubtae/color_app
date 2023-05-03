@@ -84,6 +84,7 @@ header input[type="submit"] {
     text-align: center;
     font-weight: 600;
     text-transform: lowercase;
+
 }
 
 .color-box:hover .hexcode{

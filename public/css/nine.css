@@ -1,0 +1,52 @@
+body#gradient .container{
+    width: 100%;
+}
+.gradientBox{
+    width: 100%;
+    min-height: 80vh;
+    position: relative;
+}
+
+.toolBox{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2rem;
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--main-color);
+    padding: 25px;
+    border-radius: 25px;
+
+}
+.toolBox h2{
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.toolBox button, .toolBox input{
+    all: unset;
+    border: 1px solid #62b0ff;
+    color: var(--second-color);
+    border-radius: 25px;
+    padding: 10px;
+    cursor: pointer;
+    outline: 1px solid #62b0ff;
+}
+
+.toolBox button:hover, .toolBox input:hover{
+    color: #62b0ff;
+}
+
+.preview{
+    width: calc(100% - 80px);
+    pad: 40px;    
+}
+
+
+footer{
+    margin-top: 10px;
+}

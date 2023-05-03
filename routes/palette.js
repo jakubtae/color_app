@@ -17,23 +17,6 @@ router.get('/', (req, res) => {
     res.render('main/palette.ejs');
 })
 
-//! IMPORTANT 
-//* DYNAMICLY EXECUTE EACH EXPORTED FUNCTION FROM EARLIER READ DIRECTORY
-// router.post('/', (req, res) => {
-//     var functionResults = [];
-//     for (var i = 0; i < functionNames.length; ++i) {
-//         //* exports is an object and by using object.values(exports)[i] we can use a function assinged to i value
-//         const functionWTF = {
-//             "name" : functionNames[i],
-//             "value" : Object.values(exports)[i](HexToHsl(req.body.hexcolor))
-//         }
-//         functionResults.push(functionWTF)
-//         //! pushes the result of function to arr
-//     }
-//     const maincolor = req.body.hexcolor;
-//     res.send({mainColor: maincolor, functions:functionResults});
-// })
-
 router.post('/', async (req, res) => {
     var functionResults = [];
     for (var i = 0; i < functionNames.length; ++i) {
@@ -50,6 +33,14 @@ router.post('/', async (req, res) => {
     res.send({html:html});
 })
 
-//! IMPORTANT 
+
+router.get("/browse", (req,res)=>{
+    res.render("subs/browsepalettes.ejs")
+})
+
+
+router.get("/create", (req,res)=>{
+    res.render("subs/createpalette.ejs")
+})
 
 module.exports = router;

@@ -5,23 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colors - cool gradient generator</title>
-    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="/css/master.css">
+    <link rel="stylesheet" href="/css/nine.css">
+    <link rel="stylesheet" href="/css/fontello-gradient/css/fontello.css">
 </head>
-<body>
+<body id="gradient">
     <%- include('../includes/navbar')%>
     <main>
         <div class="container">
             <div class="main">
-                <form onsubmit="return false"><input type="submit" value="GENERATE" onclick="manageData();"/></form>
                 <div class="gradientBox">
+                    <div class="toolBox">
+                        <h2>TOOLS</h2>
+                        <div class="buttonBox">
+                            <input type="button"  onclick="manageData();"/ value="Random"></input>
+                            <button type="button" onclick="copy(this.value);" class="gradientCss"><i class="icon-docs"></i></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="gradientCss"></div>
             </div>
         </div>
     </main>
 
     <%- include('../includes/footer')%>
-    <script src="js/backend-connect/gradient.js" defer></script>
+    <script src="/js/backend-connect/gradient.js" defer></script>
 
 </body>
 </html>

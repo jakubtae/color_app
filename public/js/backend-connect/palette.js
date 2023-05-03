@@ -12,9 +12,9 @@ function hexCheck() {
         return hexVal + hexVal;
       })
       .join("");
-    hexinput.value = "#"+sixDigit;
+    return hexinput.value = "#"+sixDigit;
   } else if (hexcolor.length != 6) {
-    hexinput.value = "#000000";
+    return hexinput.value = "#000000";
   }
 }
 function fetchBetterPalette(){

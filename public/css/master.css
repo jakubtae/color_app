@@ -108,6 +108,11 @@ footer .images img {
   width: 80px;
 }
 
+footer a{
+  all: unset;
+  cursor: pointer;
+}
+
 /* ! FOOTER INCLUDE STYLE END */
 
 /* ! ALL PAGES CSS START */

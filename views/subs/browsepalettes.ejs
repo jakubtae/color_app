@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colors - colors palette generator</title>
+    <title>Colors - explore the most liked palettes</title>
     <link rel="stylesheet" href="/css/master.css">
     <link rel="stylesheet" href="/css/six.css">
 </head>
@@ -15,18 +15,12 @@
 
         <div class="container">
             <header>
-                <h1>PICK A COLOR</h1>
-                <input id="hex_input" type="text" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" onchange="hexCheck();" required  value="#"/>
-                <input id="hex_submit" type="submit" value="GENERATE" onclick="hexCheck();fetchBetterPalette();">
+                <h1>Find a perfect palette</h1>
             </header>
         <div id="content"></div>
         </div>
     </main>
-    <div class="msg hidden">
-        Hex code has been copied to clipboard
-    </div>
     <%- include('../includes/footer')%>
-    <script src="/js/backend-connect/palette.js" defer></script>
-    <script src="/js/aesthetic/palette.js" defer></script>
+    <!-- <script src="js/backend-connect/palette.js" defer></script> -->
 </body>
 </html>

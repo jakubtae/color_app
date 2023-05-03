@@ -4,6 +4,7 @@ function saveColor() {
   return preColor;
 }
 function changeColor() {
+  // ! https://stackoverflow.com/questions/17596761/changing-value-of-class-variable
   var newColor = document.querySelector("input[type='color']").value;
   const colorsMain = document.querySelectorAll(".color-main");
   colorsMain.forEach((color) => {
