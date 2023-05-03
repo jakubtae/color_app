@@ -4,6 +4,7 @@
   --second-color: #000;
   --second-half-color: rgba(0, 0, 0, 0.5);
   --font-family: "Poppins", sans-serif;
+  --linear-gradient: linear-gradient(90deg, #37306B 0%, #66347F 30.21%, #9E4784 66.15%, #D27685 100%);
 }
 * {
   box-sizing: border-box;

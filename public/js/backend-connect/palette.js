@@ -32,21 +32,15 @@ function fetchBetterPalette(){
       footer.classList.remove("sticked");
 
       const cbox = document.querySelectorAll(".color-box");
-      
-      const msg = document.createElement("div");
-      msg.style.display = "block";
-      msg.style.position = "absolute";
-      msg.style.minWidth = "100px";
-      msg.style.aspectRatio = "1/1";
-      msg.style.background = "red";
-      function tellPos(p){
-      content.appendChild(msg);
-        msg.style.left = p.pageX+"px";
-        msg.style.top = p.pageY+"px";
+      function clipShow(){
+        const msg = document.querySelector(".msg");
+        msg.classList.remove("hidden");
+        setTimeout(() => {
+          msg.classList.add("hidden");
+        },3000)
       }
-      
        for (let i = 0; i < cbox.length; i++) {
-            cbox[i].addEventListener("mouseover mousemove", tellPos, false)
+            cbox[i].addEventListener("click", clipShow, false)
        }
 
     }

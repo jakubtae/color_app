@@ -1,7 +1,7 @@
 <%if(locals.functions){%>
     <% Array.from(locals.functions).forEach(func =>{%>
         <div class="palette" id="<%=func.name%>">
-            <h3><%=func.name%></h3>
+            <h3><%=func.name%> palette</h3>
             <div class="palette-colors">
                 <div class="color-box" onclick="justCopy(this.querySelector('.hexcode').innerText);">
                     <div class="color" style="background: <%= mainColor%>;"></div>
